@@ -1,0 +1,56 @@
+name: build_apk
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    name: Build Apps
+    runs-on: macos-latest
+    env:
+      ENCODED_KEY_STORE: ${{ secrets.ENCODED_KEY_STORE }}
+      KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+      STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+      KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+    steps:
+      - name: Export Release Timestamp
+        run: echo "APP_VERSION=v$(date +'%Y.%m.%d.%H.%M.%S')" >> $GITHUB_ENV
+      - name: checkout repo
+        uses: actions/checkout@v3
+      - name: set up java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '12.x'
+      - name: set up flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+      - run: flutter pub get
+      - run: |
+          cd android/
+          echo $ENCODED_KEY_STORE | base64 -d > "$GITHUB_WORKSPACE/ccl_mobile_keystore.jks"
+          echo "storeFile=$GITHUB_WORKSPACE/ccl_mobile_keystore.jks" >> key.properties
+          echo "keyAlias=$KEY_ALIAS" >> key.properties
+          echo "storePassword=$STORE_PASSWORD" >> key.properties
+          echo "keyPassword=$KEY_PASSWORD" >> key.properties
+      #- name: Run Tests
+      # run: flutter test
+      - name: Build Android App
+        run: flutter build apk --release --split-per-abi --obfuscate --split-debug-info=./
+          #- name: Build iOS App
+          # run: |
+          #  flutter build ios --no-codesign
+          # cd build/ios/iphoneos
+          #mkdir Payload
+          #cd Payload
+          #ln -s ../Runner.app
+          #cd ..
+        #zip -r app.ipa Payload
+      - name: Release Apps
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ env.APP_VERSION }}
+          name: ${{ github.event.pull_request.title}}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          artifacts: 'build/app/outputs/apk/release/*.apk'
+          # artifacts: 'build/app/outputs/apk/release/*.apk,build/ios/iphoneos/app.ipa'
