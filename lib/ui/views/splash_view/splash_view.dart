@@ -4,6 +4,7 @@ import 'package:peek/helpers/constants/colors.dart';
 import 'package:peek/helpers/extensions/build_context/media_query.dart';
 import 'package:peek/helpers/extensions/build_context/text_theme.dart';
 import 'package:peek/ui/views/splash_view/splash_viewmodel.dart';
+import 'package:peek/ui/widgets/custom_button.dart';
 import 'package:stacked/stacked.dart';
 
 class SplashView extends StatelessWidget {
@@ -43,19 +44,7 @@ class SplashView extends StatelessWidget {
                     SizedBox(
                       height: context.heightPercent(0.1),
                     ),
-                    Container(
-                      padding: const EdgeInsets.all(17),
-                      margin: const EdgeInsets.symmetric(horizontal: 10),
-                      decoration: BoxDecoration(
-                          color: AppColors.buttonColor,
-                          borderRadius: BorderRadius.circular(20)),
-                      child: Center(
-                        child: Text(
-                          "Get Started",
-                          style: context.textTheme.titleSmall,
-                        ),
-                      ),
-                    ),
+                    CustomButton(text: "Get Started", onTap: () {}),
                     const SizedBox(
                       height: 30,
                     ),
