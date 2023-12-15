@@ -8,6 +8,7 @@ import 'package:peek/ui/views/terms_and_privacy/terms_and_privacy_view.dart';
 import 'package:peek/ui/views/verification/verification_view.dart';
 
 import '../helpers/constants/routes.dart';
+import '../ui/views/verification_success/verification_success_view.dart';
 
 GoRouter router() {
   return GoRouter(routes: <GoRoute>[
@@ -43,7 +44,14 @@ GoRouter router() {
     GoRoute(
       name: AppRoutes.verificationView,
       path: AppRoutes.verificationView,
-      builder: (BuildContext context, GoRouterState state) => const VerificationView(),
+      builder: (BuildContext context, GoRouterState state) =>
+          const VerificationView(),
+    ),
+    GoRoute(
+      name: AppRoutes.verificationSuccessView,
+      path: AppRoutes.verificationSuccessView,
+      builder: (BuildContext context, GoRouterState state) =>
+          const VerificationSuccessView(),
     ),
   ]);
 }

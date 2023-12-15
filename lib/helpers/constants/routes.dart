@@ -5,4 +5,5 @@ class AppRoutes {
   static const signupView = '/signup-view';
   static const loginView = '/login-view';
   static const verificationView = '/verification-view';
+  static const verificationSuccessView = '/verification-success-view';
 }

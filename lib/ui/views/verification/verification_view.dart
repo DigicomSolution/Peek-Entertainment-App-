@@ -69,7 +69,7 @@ class VerificationView extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    CustomButton(text: "Verify", onTap: () {}),
+                    CustomButton(text: "Verify", onTap: model.goToSuccessView),
                     const SizedBox(
                       height: 20,
                     ),
