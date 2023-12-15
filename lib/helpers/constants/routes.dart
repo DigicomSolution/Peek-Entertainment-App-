@@ -8,4 +8,5 @@ class AppRoutes {
   static const verificationSuccessView = '/verification-success-view';
   static const forgotPasswordView = '/forgot-password-view';
   static const resetPasswordView = '/reset-password-view';
+  static const anonymousProfileView = '/anonymous-profile-view';
 }

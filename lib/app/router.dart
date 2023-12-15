@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:peek/ui/views/anonymous_profile/anonymous_profile_view.dart';
 import 'package:peek/ui/views/forgot_password/forgot_password_view.dart';
 import 'package:peek/ui/views/login/login_view.dart';
 import 'package:peek/ui/views/reset_password/reset_password_view.dart';
@@ -66,6 +67,12 @@ GoRouter router() {
       path: AppRoutes.resetPasswordView,
       builder: (BuildContext context, GoRouterState state) =>
           const ResetPasswordView(),
+    ),
+    GoRoute(
+      name: AppRoutes.anonymousProfileView,
+      path: AppRoutes.anonymousProfileView,
+      builder: (BuildContext context, GoRouterState state) =>
+          const AnonymousProfileView(),
     ),
   ]);
 }
