@@ -18,6 +18,7 @@ class SignupView extends StatelessWidget {
         viewModelBuilder: () => SignupViewModel(),
         builder: (context, model, child) => Scaffold(
               backgroundColor: AppColors.deepBlack,
+              resizeToAvoidBottomInset: false,
               body: GestureDetector(
                 onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
                 child: Padding(

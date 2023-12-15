@@ -39,7 +39,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: context.heightPercent(0.07),
+      // height: context.heightPercent(0.07),
       child: Focus(
         onFocusChange: (hasFocus) {
           setState(() {

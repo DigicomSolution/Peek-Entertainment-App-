@@ -18,6 +18,7 @@ class VerificationView extends StatelessWidget {
     return ViewModelBuilder<VerificationViewModel>.reactive(
         viewModelBuilder: () => VerificationViewModel(),
         builder: (context, model, child) => Scaffold(
+          resizeToAvoidBottomInset: false,
               backgroundColor: AppColors.deepBlack,
               appBar: AppBar(
                 backgroundColor: AppColors.deepBlack,

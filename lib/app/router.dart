@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:peek/ui/views/forgot_password/forgot_password_view.dart';
 import 'package:peek/ui/views/login/login_view.dart';
+import 'package:peek/ui/views/reset_password/reset_password_view.dart';
 import 'package:peek/ui/views/signup/signup_view.dart';
 import 'package:peek/ui/views/splash_view/splash_view.dart';
 import 'package:peek/ui/views/startup_view/startup_view.dart';
@@ -59,6 +60,12 @@ GoRouter router() {
       path: AppRoutes.forgotPasswordView,
       builder: (BuildContext context, GoRouterState state) =>
           const ForgotPasswordView(),
+    ),
+    GoRoute(
+      name: AppRoutes.resetPasswordView,
+      path: AppRoutes.resetPasswordView,
+      builder: (BuildContext context, GoRouterState state) =>
+          const ResetPasswordView(),
     ),
   ]);
 }

@@ -70,7 +70,8 @@ class ForgotPasswordView extends StatelessWidget {
                     SizedBox(
                       height: context.heightPercent(0.2),
                     ),
-                    CustomButton(text: "Reset Password", onTap: () {})
+                    CustomButton(
+                        text: "Reset Password", onTap: model.goToResetPassword)
                   ],
                 ),
               ),

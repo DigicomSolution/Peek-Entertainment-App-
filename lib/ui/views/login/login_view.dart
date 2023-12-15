@@ -17,6 +17,7 @@ class LoginView extends StatelessWidget {
     return ViewModelBuilder<LoginViewModel>.reactive(
         viewModelBuilder: () => LoginViewModel(),
         builder: (context, model, child) => Scaffold(
+          resizeToAvoidBottomInset: false,
               backgroundColor: AppColors.deepBlack,
               body: GestureDetector(
                 onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
