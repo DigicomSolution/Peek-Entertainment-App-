@@ -67,7 +67,8 @@ class SignupView extends StatelessWidget {
                       const SizedBox(
                         height: 50,
                       ),
-                      CustomButton(text: "Sign Up", onTap: () {}),
+                      CustomButton(
+                          text: "Sign Up", onTap: model.goToVerification),
                       const SizedBox(
                         height: 30,
                       ),
@@ -92,9 +93,13 @@ class SignupView extends StatelessWidget {
                       const SizedBox(
                         height: 30,
                       ),
-                      const Align(
+                      Align(
                           alignment: Alignment.center,
-                          child: Text("Or continue with")),
+                          child: Text(
+                            "Or continue with",
+                            style: context.textTheme.labelLarge
+                                ?.copyWith(color: AppColors.textGrey),
+                          )),
                       const SizedBox(
                         height: 30,
                       ),

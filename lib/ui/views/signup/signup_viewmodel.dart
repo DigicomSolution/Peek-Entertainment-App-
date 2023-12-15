@@ -19,4 +19,8 @@ class SignupViewModel extends BaseViewModel {
   void goToLogin() {
     locator<GoRouter>().push(AppRoutes.loginView);
   }
+
+  void goToVerification() {
+    locator<GoRouter>().push(AppRoutes.verificationView);
+  }
 }

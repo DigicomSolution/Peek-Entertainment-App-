@@ -4,4 +4,5 @@ class AppRoutes {
   static const termsAndPrivacyView = '/terms-and-privacy_view';
   static const signupView = '/signup-view';
   static const loginView = '/login-view';
+  static const verificationView = '/verification-view';
 }

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:stacked/stacked.dart';
+
+import '../../../app/locator.dart';
+import '../../../helpers/constants/routes.dart';
 
 class LoginViewModel extends BaseViewModel{
   final emailController = TextEditingController();
@@ -8,5 +12,8 @@ class LoginViewModel extends BaseViewModel{
   void toggleVisibility() {
     isVisible = !isVisible;
     notifyListeners();
+  }
+  void goToSignUpView() {
+    locator<GoRouter>().push(AppRoutes.signupView);
   }
 }

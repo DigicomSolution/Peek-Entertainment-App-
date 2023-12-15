@@ -72,18 +72,21 @@ class LoginView extends StatelessWidget {
                       ),
                       Align(
                         alignment: Alignment.center,
-                        child: RichText(
-                            text: TextSpan(
-                                text: 'Already have an account? ',
-                                style: context.textTheme.labelLarge
-                                    ?.copyWith(color: AppColors.white),
-                                children: [
-                              TextSpan(
-                                text: 'Log In',
-                                style: context.textTheme.titleSmall
-                                    ?.copyWith(color: AppColors.buttonColor),
-                              ),
-                            ])),
+                        child: InkWell(
+                          onTap: model.goToSignUpView,
+                          child: RichText(
+                              text: TextSpan(
+                                  text: 'Don’t have an account yet? ',
+                                  style: context.textTheme.labelLarge
+                                      ?.copyWith(color: AppColors.white),
+                                  children: [
+                                TextSpan(
+                                  text: 'Sign Up',
+                                  style: context.textTheme.titleSmall
+                                      ?.copyWith(color: AppColors.buttonColor),
+                                ),
+                              ])),
+                        ),
                       ),
                       const SizedBox(
                         height: 30,

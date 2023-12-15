@@ -6,6 +6,7 @@ class AppColors {
   static const Color green = Color(0xFF4CD964);
   static const white = Color(0xFFFFFFFF);
   static const buttonColor = Color(0xFFE1C699);
+  static const lightBerge = Color(0xFFF5F5DC);
   static const normalBlack = Color(0xFF2E2E2E);
   static const fillColor = Color(0xFF282827);
   static const deepBlack = Color(0xFF010100);
