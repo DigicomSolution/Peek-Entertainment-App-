@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:peek/ui/views/forgot_password/forgot_password_view.dart';
 import 'package:peek/ui/views/login/login_view.dart';
 import 'package:peek/ui/views/signup/signup_view.dart';
 import 'package:peek/ui/views/splash_view/splash_view.dart';
@@ -52,6 +53,12 @@ GoRouter router() {
       path: AppRoutes.verificationSuccessView,
       builder: (BuildContext context, GoRouterState state) =>
           const VerificationSuccessView(),
+    ),
+    GoRoute(
+      name: AppRoutes.forgotPasswordView,
+      path: AppRoutes.forgotPasswordView,
+      builder: (BuildContext context, GoRouterState state) =>
+          const ForgotPasswordView(),
     ),
   ]);
 }

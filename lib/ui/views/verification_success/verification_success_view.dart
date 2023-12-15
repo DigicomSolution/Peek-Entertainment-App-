@@ -18,7 +18,7 @@ class VerificationSuccessView extends StatelessWidget {
         builder: (context, model, child) => Scaffold(
               backgroundColor: AppColors.white,
               body: Padding(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,

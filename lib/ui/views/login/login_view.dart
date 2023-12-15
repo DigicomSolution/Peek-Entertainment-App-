@@ -57,10 +57,13 @@ class LoginView extends StatelessWidget {
                       ),
                       Align(
                         alignment: Alignment.centerRight,
-                        child: Text(
-                          "Forgot Password?",
-                          style: context.textTheme.titleSmall
-                              ?.copyWith(color: AppColors.buttonColor),
+                        child: InkWell(
+                          onTap: model.goToForgotPassword,
+                          child: Text(
+                            "Forgot Password?",
+                            style: context.textTheme.titleSmall
+                                ?.copyWith(color: AppColors.buttonColor),
+                          ),
                         ),
                       ),
                       const SizedBox(

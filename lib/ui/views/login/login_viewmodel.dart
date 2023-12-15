@@ -5,7 +5,7 @@ import 'package:stacked/stacked.dart';
 import '../../../app/locator.dart';
 import '../../../helpers/constants/routes.dart';
 
-class LoginViewModel extends BaseViewModel{
+class LoginViewModel extends BaseViewModel {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   bool isVisible = true;
@@ -13,7 +13,12 @@ class LoginViewModel extends BaseViewModel{
     isVisible = !isVisible;
     notifyListeners();
   }
+
   void goToSignUpView() {
     locator<GoRouter>().push(AppRoutes.signupView);
+  }
+
+  void goToForgotPassword() {
+    locator<GoRouter>().push(AppRoutes.forgotPasswordView);
   }
 }
