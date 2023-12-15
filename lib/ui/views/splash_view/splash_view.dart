@@ -44,7 +44,8 @@ class SplashView extends StatelessWidget {
                     SizedBox(
                       height: context.heightPercent(0.1),
                     ),
-                    CustomButton(text: "Get Started", onTap: () {}),
+                    CustomButton(
+                        text: "Get Started", onTap: model.goToTermsView),
                     const SizedBox(
                       height: 30,
                     ),

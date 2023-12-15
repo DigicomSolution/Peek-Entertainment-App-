@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:peek/ui/views/login/login_view.dart';
+import 'package:peek/ui/views/signup/signup_view.dart';
 import 'package:peek/ui/views/splash_view/splash_view.dart';
 import 'package:peek/ui/views/startup_view/startup_view.dart';
+import 'package:peek/ui/views/terms_and_privacy/terms_and_privacy_view.dart';
 
 import '../helpers/constants/routes.dart';
 
@@ -18,6 +21,23 @@ GoRouter router() {
       path: AppRoutes.splashScreen,
       builder: (BuildContext context, GoRouterState state) =>
           const SplashView(),
+    ),
+    GoRoute(
+      name: AppRoutes.termsAndPrivacyView,
+      path: AppRoutes.termsAndPrivacyView,
+      builder: (BuildContext context, GoRouterState state) =>
+          const TermsAndPrivacyView(),
+    ),
+    GoRoute(
+      name: AppRoutes.signupView,
+      path: AppRoutes.signupView,
+      builder: (BuildContext context, GoRouterState state) =>
+          const SignupView(),
+    ),
+    GoRoute(
+      name: AppRoutes.loginView,
+      path: AppRoutes.loginView,
+      builder: (BuildContext context, GoRouterState state) => const LoginView(),
     ),
   ]);
 }

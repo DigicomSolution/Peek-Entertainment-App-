@@ -7,6 +7,7 @@ class AppColors {
   static const white = Color(0xFFFFFFFF);
   static const buttonColor = Color(0xFFE1C699);
   static const normalBlack = Color(0xFF2E2E2E);
+  static const fillColor = Color(0xFF282827);
   static const deepBlack = Color(0xFF010100);
   static const textGrey = Color(0xFFC5C5C5);
   static List<Color> primaryColorOptions = const [
