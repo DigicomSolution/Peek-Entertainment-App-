@@ -25,7 +25,7 @@ class AnonymousProfileView extends StatelessWidget {
               body: GestureDetector(
                 onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
                 child: Padding(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -127,7 +127,8 @@ class AnonymousProfileView extends StatelessWidget {
                               ),
                             ),
                       const Spacer(),
-                      CustomButton(text: "Continue", onTap: () {}),
+                      CustomButton(
+                          text: "Continue", onTap: model.goToVerifyView),
                       const SizedBox(
                         height: 60,
                       ),

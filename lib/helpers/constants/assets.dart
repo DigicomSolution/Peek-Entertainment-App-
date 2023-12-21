@@ -7,4 +7,5 @@ class AppAssets {
   static const successSvg = 'assets/svg/success.svg';
   static const lockSvg = 'assets/svg/lock.svg';
   static const editSvg = 'assets/svg/edit.svg';
+  static const idCardSvg = 'assets/svg/id_card.svg';
 }

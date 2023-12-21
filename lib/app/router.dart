@@ -9,6 +9,7 @@ import 'package:peek/ui/views/splash_view/splash_view.dart';
 import 'package:peek/ui/views/startup_view/startup_view.dart';
 import 'package:peek/ui/views/terms_and_privacy/terms_and_privacy_view.dart';
 import 'package:peek/ui/views/verification/verification_view.dart';
+import 'package:peek/ui/views/verify_identity/verify_identity_view.dart';
 
 import '../helpers/constants/routes.dart';
 import '../ui/views/verification_success/verification_success_view.dart';
@@ -73,6 +74,12 @@ GoRouter router() {
       path: AppRoutes.anonymousProfileView,
       builder: (BuildContext context, GoRouterState state) =>
           const AnonymousProfileView(),
+    ),
+    GoRoute(
+      name: AppRoutes.verifyIdentityView,
+      path: AppRoutes.verifyIdentityView,
+      builder: (BuildContext context, GoRouterState state) =>
+          const VerifyIdentityView(),
     ),
   ]);
 }
