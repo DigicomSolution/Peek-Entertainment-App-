@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:peek/helpers/constants/assets.dart';
@@ -122,7 +123,13 @@ class VerifyIdentityView extends StatelessWidget {
                         ),
                       ),
                       const Spacer(),
-                      CustomButton(text: "Take a photo", onTap: () {}),
+                      CustomButton(
+                        text: "Take a photo",
+                        onTap: () async {
+                          XFile? image = await model.takePicture();
+                          model.showPreview(image, context);
+                        },
+                      ),
                       const SizedBox(
                         height: 60,
                       ),

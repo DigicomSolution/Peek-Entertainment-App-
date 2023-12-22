@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:peek/ui/views/anonymous_profile/anonymous_profile_view.dart';
 import 'package:peek/ui/views/forgot_password/forgot_password_view.dart';
+import 'package:peek/ui/views/identity_verification_success_view/identity_verification_success_view.dart';
 import 'package:peek/ui/views/login/login_view.dart';
 import 'package:peek/ui/views/reset_password/reset_password_view.dart';
 import 'package:peek/ui/views/signup/signup_view.dart';
@@ -80,6 +81,12 @@ GoRouter router() {
       path: AppRoutes.verifyIdentityView,
       builder: (BuildContext context, GoRouterState state) =>
           const VerifyIdentityView(),
+    ),
+    GoRoute(
+      name: AppRoutes.verifyIdentitySuccessView,
+      path: AppRoutes.verifyIdentitySuccessView,
+      builder: (BuildContext context, GoRouterState state) =>
+          const IdentityVerificationSuccessView(),
     ),
   ]);
 }
