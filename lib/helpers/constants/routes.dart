@@ -11,4 +11,5 @@ class AppRoutes {
   static const anonymousProfileView = '/anonymous-profile-view';
   static const verifyIdentityView = '/verify-identity-view';
   static const verifyIdentitySuccessView = '/verify-identity-success-view';
+  static const homeView = '/home-view';
 }

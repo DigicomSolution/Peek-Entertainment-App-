@@ -8,4 +8,8 @@ class AppAssets {
   static const lockSvg = 'assets/svg/lock.svg';
   static const editSvg = 'assets/svg/edit.svg';
   static const idCardSvg = 'assets/svg/id_card.svg';
+  static const homeSvg = 'assets/svg/home.svg';
+  static const exploreSvg = 'assets/svg/explore.svg';
+  static const messageSvg = 'assets/svg/message.svg';
+  static const notificationSvg = 'assets/svg/notification.svg';
 }

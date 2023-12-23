@@ -17,7 +17,7 @@ class LoginView extends StatelessWidget {
     return ViewModelBuilder<LoginViewModel>.reactive(
         viewModelBuilder: () => LoginViewModel(),
         builder: (context, model, child) => Scaffold(
-          resizeToAvoidBottomInset: false,
+              resizeToAvoidBottomInset: false,
               backgroundColor: AppColors.deepBlack,
               body: GestureDetector(
                 onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
@@ -70,7 +70,7 @@ class LoginView extends StatelessWidget {
                       const SizedBox(
                         height: 50,
                       ),
-                      CustomButton(text: "Login", onTap: () {}),
+                      CustomButton(text: "Login", onTap: model.goToHomeView),
                       const SizedBox(
                         height: 30,
                       ),

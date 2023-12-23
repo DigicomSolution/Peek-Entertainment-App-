@@ -18,6 +18,10 @@ class LoginViewModel extends BaseViewModel {
     locator<GoRouter>().push(AppRoutes.signupView);
   }
 
+  void goToHomeView() {
+    locator<GoRouter>().push(AppRoutes.homeView);
+  }
+
   void goToForgotPassword() {
     locator<GoRouter>().push(AppRoutes.forgotPasswordView);
   }

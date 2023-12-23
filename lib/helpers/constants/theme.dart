@@ -13,6 +13,8 @@ class AppThemes {
       fontFamily: 'Quicksand',
       brightness: isDark ? Brightness.dark : Brightness.light,
       primaryColor: primaryColor,
+      bottomNavigationBarTheme:
+          BottomNavigationBarThemeData(backgroundColor: AppColors.normalBlack),
       scaffoldBackgroundColor: isDark ? AppColors.deepBlack : AppColors.white,
       // cardColor: isDark ? AppColors.blackLight : AppColors.white,
       // dividerColor: isDark
