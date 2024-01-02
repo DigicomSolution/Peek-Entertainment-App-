@@ -84,13 +84,31 @@ class ChatView extends StatelessWidget {
                     ),
                   ],
                 ),
+                actions: [
+                  Container(
+                    padding: const EdgeInsets.all(9),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: AppColors.buttonColor.withOpacity(0.3),
+                    ),
+                    child: const Icon(
+                      Icons.phone_in_talk_outlined,
+                      color: AppColors.textGrey,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                ],
               ),
-              body: ChatBody(),
+              body: const ChatBody(),
             ));
   }
 }
 
 class ChatBody extends StatelessWidget {
+  const ChatBody({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
