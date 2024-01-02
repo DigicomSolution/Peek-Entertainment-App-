@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peek/ui/views/message/message_view.dart';
 import 'package:stacked/stacked.dart';
 
 import '../dashboard_view/dashboard_view.dart';
@@ -15,16 +16,16 @@ class HomeViewModel extends BaseViewModel {
   Widget getViewForIndex(int index) {
     switch (index) {
       case 0:
-        return DashboardView();
+        return const DashboardView();
       case 1:
         return Container();
       case 2:
-        return Container();
+        return const MessageView();
 
       case 3:
-        return NotificationView();
+        return const NotificationView();
       default:
-        return DashboardView();
+        return const DashboardView();
     }
   }
 }

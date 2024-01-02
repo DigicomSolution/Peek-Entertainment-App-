@@ -32,18 +32,23 @@ class HomeView extends StatelessWidget {
                 items: [
                   BottomNavigationBarItem(
                     icon: SvgPicture.asset(AppAssets.homeSvg),
+                    activeIcon: SvgPicture.asset(AppAssets.homeActiveSvg),
                     label: 'Home',
                   ),
                   BottomNavigationBarItem(
                     icon: SvgPicture.asset(AppAssets.exploreSvg),
+                    activeIcon: SvgPicture.asset(AppAssets.exploreActiveSvg),
                     label: 'Explore',
                   ),
                   BottomNavigationBarItem(
                     icon: SvgPicture.asset(AppAssets.messageSvg),
+                    activeIcon: SvgPicture.asset(AppAssets.messageActiveSvg),
                     label: 'Message',
                   ),
                   BottomNavigationBarItem(
                     icon: SvgPicture.asset(AppAssets.notificationSvg),
+                    activeIcon:
+                        SvgPicture.asset(AppAssets.notificationActiveSvg),
                     label: 'Notifications',
                   ),
                 ],
