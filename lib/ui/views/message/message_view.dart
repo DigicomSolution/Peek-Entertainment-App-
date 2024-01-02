@@ -97,18 +97,24 @@ class MessageView extends StatelessWidget {
                           const SizedBox(
                             height: 10,
                           ),
-                          const MessageChatWidget(
-                            imageUrl:
-                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdzK5S9Oykm8HngtnKj76uClPksD94LIVStmGNki_pBQ&s',
-                            name: 'Alex Scott',
+                          InkWell(
+                            onTap: model.goToChatView,
+                            child: const MessageChatWidget(
+                              imageUrl:
+                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdzK5S9Oykm8HngtnKj76uClPksD94LIVStmGNki_pBQ&s',
+                              name: 'Alex Scott',
+                            ),
                           ),
                           const SizedBox(
                             height: 10,
                           ),
-                          const MessageChatWidget(
-                            imageUrl:
-                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8z_lT9xmE8tqkdIy65D2XiIfm_KuCQLcEqBKsVf35KOSdq0Kr5xYtbQ1nkQ&s',
-                            name: 'Brian James',
+                          InkWell(
+                            onTap: model.goToChatView,
+                            child: const MessageChatWidget(
+                              imageUrl:
+                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8z_lT9xmE8tqkdIy65D2XiIfm_KuCQLcEqBKsVf35KOSdq0Kr5xYtbQ1nkQ&s',
+                              name: 'Brian James',
+                            ),
                           ),
                           const SizedBox(
                             height: 10,
