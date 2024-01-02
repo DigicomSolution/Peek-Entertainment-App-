@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:peek/ui/views/anonymous_profile/anonymous_profile_view.dart';
+import 'package:peek/ui/views/chat/chat_view.dart';
 import 'package:peek/ui/views/forgot_password/forgot_password_view.dart';
 import 'package:peek/ui/views/home/home_view.dart';
 import 'package:peek/ui/views/identity_verification_success_view/identity_verification_success_view.dart';
@@ -93,6 +94,11 @@ GoRouter router() {
       name: AppRoutes.homeView,
       path: AppRoutes.homeView,
       builder: (BuildContext context, GoRouterState state) => const HomeView(),
+    ),
+    GoRoute(
+      name: AppRoutes.chatView,
+      path: AppRoutes.chatView,
+      builder: (BuildContext context, GoRouterState state) => const ChatView(),
     ),
   ]);
 }

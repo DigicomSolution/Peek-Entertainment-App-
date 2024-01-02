@@ -101,6 +101,7 @@ class AppThemes {
           color: Color(0xff000000),
           fontSize: null,
           fontWeight: FontWeight.w400,
+          letterSpacing: 0,
           fontStyle: FontStyle.normal,
         ),
       ),
