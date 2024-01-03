@@ -19,4 +19,5 @@ class AppAssets {
   static const messageEdit = 'assets/svg/message_edit.svg';
   static const messageEmpty = 'assets/svg/empty_message.svg';
   static const notificationEmpty = 'assets/svg/notification_empty.svg';
+  static const homeViewEmpty = 'assets/svg/home_view_empty.svg';
 }
