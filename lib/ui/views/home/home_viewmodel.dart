@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peek/ui/views/explore/explore_view.dart';
 import 'package:peek/ui/views/message/message_view.dart';
 import 'package:stacked/stacked.dart';
 
@@ -18,7 +19,7 @@ class HomeViewModel extends BaseViewModel {
       case 0:
         return const DashboardView();
       case 1:
-        return Container();
+        return const ExploreView();
       case 2:
         return const MessageView();
 
