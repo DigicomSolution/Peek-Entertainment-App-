@@ -22,7 +22,7 @@ class SignupView extends StatelessWidget {
               body: GestureDetector(
                 onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
                 child: Padding(
-                  padding: const EdgeInsets.all(15),
+                  padding: EdgeInsets.all(context.widthPercent(0.04)),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -34,28 +34,28 @@ class SignupView extends StatelessWidget {
                         style: context.textTheme.titleLarge
                             ?.copyWith(color: AppColors.white),
                       ),
-                      const SizedBox(
-                        height: 30,
+                      SizedBox(
+                        height: context.heightPercent(0.02),
                       ),
                       CustomTextFormField(
                           label: "First Name",
                           controller: model.firstNameController),
-                      const SizedBox(
-                        height: 30,
+                      SizedBox(
+                        height: context.heightPercent(0.02),
                       ),
                       CustomTextFormField(
                           label: "Last Name",
                           controller: model.lastNameController),
-                      const SizedBox(
-                        height: 30,
+                      SizedBox(
+                        height: context.heightPercent(0.02),
                       ),
                       CustomTextFormField(
                         label: "Email Address",
                         controller: model.emailController,
                         textInputType: TextInputType.emailAddress,
                       ),
-                      const SizedBox(
-                        height: 30,
+                      SizedBox(
+                        height: context.heightPercent(0.02),
                       ),
                       CustomTextFormField(
                         label: "Password",
@@ -65,13 +65,13 @@ class SignupView extends StatelessWidget {
                         isObscure: model.isVisible,
                         onTap: model.toggleVisibility,
                       ),
-                      const SizedBox(
-                        height: 50,
+                      SizedBox(
+                        height: context.heightPercent(0.04),
                       ),
                       CustomButton(
                           text: "Sign Up", onTap: model.goToVerification),
-                      const SizedBox(
-                        height: 30,
+                      SizedBox(
+                        height: context.heightPercent(0.02),
                       ),
                       Align(
                         alignment: Alignment.center,
@@ -91,8 +91,8 @@ class SignupView extends StatelessWidget {
                               ])),
                         ),
                       ),
-                      const SizedBox(
-                        height: 30,
+                      SizedBox(
+                        height: context.heightPercent(0.02),
                       ),
                       Align(
                           alignment: Alignment.center,
@@ -101,8 +101,8 @@ class SignupView extends StatelessWidget {
                             style: context.textTheme.labelLarge
                                 ?.copyWith(color: AppColors.textGrey),
                           )),
-                      const SizedBox(
-                        height: 30,
+                      SizedBox(
+                        height: context.heightPercent(0.02),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,

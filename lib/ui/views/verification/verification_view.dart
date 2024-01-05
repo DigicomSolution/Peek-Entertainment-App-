@@ -18,7 +18,7 @@ class VerificationView extends StatelessWidget {
     return ViewModelBuilder<VerificationViewModel>.reactive(
         viewModelBuilder: () => VerificationViewModel(),
         builder: (context, model, child) => Scaffold(
-          resizeToAvoidBottomInset: false,
+              resizeToAvoidBottomInset: false,
               backgroundColor: AppColors.deepBlack,
               appBar: AppBar(
                 backgroundColor: AppColors.deepBlack,
@@ -39,13 +39,7 @@ class VerificationView extends StatelessWidget {
                       "Enter the 4 digit verification code sent \nto your email address. ",
                       style: context.textTheme.labelLarge,
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
                     SvgPicture.asset(AppAssets.verificationSvg),
-                    const SizedBox(
-                      height: 20,
-                    ),
                     PinCodeFields(
                       length: 4,
                       fieldBorderStyle: FieldBorderStyle.square,
@@ -67,12 +61,12 @@ class VerificationView extends StatelessWidget {
                         print(output);
                       },
                     ),
-                    const SizedBox(
-                      height: 20,
+                    SizedBox(
+                      height: context.heightPercent(0.02),
                     ),
                     CustomButton(text: "Verify", onTap: model.goToSuccessView),
-                    const SizedBox(
-                      height: 20,
+                    SizedBox(
+                      height: context.heightPercent(0.02),
                     ),
                     Align(
                         alignment: Alignment.center,
@@ -81,8 +75,8 @@ class VerificationView extends StatelessWidget {
                           style: context.textTheme.labelLarge
                               ?.copyWith(color: AppColors.textGrey),
                         )),
-                    const SizedBox(
-                      height: 20,
+                    SizedBox(
+                      height: context.heightPercent(0.02),
                     ),
                     Align(
                         alignment: Alignment.center,

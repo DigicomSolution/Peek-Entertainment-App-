@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
+import 'package:peek/app/locator.dart';
 import 'package:peek/helpers/constants/assets.dart';
 import 'package:peek/helpers/constants/colors.dart';
+import 'package:peek/helpers/constants/routes.dart';
 import 'package:peek/helpers/extensions/build_context/text_theme.dart';
 import 'package:peek/ui/views/dashboard_view/dashboard_viewmodel.dart';
 import 'package:peek/ui/widgets/custom_button.dart';
@@ -39,16 +42,20 @@ class DashboardView extends StatelessWidget {
                   ),
                 ),
                 actions: [
-                  Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 5),
-                    child: const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: CircleAvatar(
-                        radius: 25,
-                        backgroundImage: NetworkImage(
-                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT583_HWz1qEN6hCuKJZ4aqOZQtr5C8lShJk1JiEcLdV2OFi1w0iY3YoN8bqw&s"),
-                        // Placeholder for users without an image
-                        child: Text('User'),
+                  InkWell(
+                    onTap: () =>
+                        locator<GoRouter>().push(AppRoutes.profileView),
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 5),
+                      child: const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: CircleAvatar(
+                          radius: 25,
+                          backgroundImage: NetworkImage(
+                              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT583_HWz1qEN6hCuKJZ4aqOZQtr5C8lShJk1JiEcLdV2OFi1w0iY3YoN8bqw&s"),
+                          // Placeholder for users without an image
+                          child: Text('User'),
+                        ),
                       ),
                     ),
                   ),

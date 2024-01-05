@@ -30,7 +30,7 @@ class AnonymousProfileView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        height: context.heightPercent(0.1),
+                        height: context.heightPercent(0.08),
                       ),
                       Text(
                         "Setup an anonymous \nProfile",
@@ -38,7 +38,7 @@ class AnonymousProfileView extends StatelessWidget {
                             ?.copyWith(color: AppColors.white),
                       ),
                       const SizedBox(
-                        height: 50,
+                        height: 20,
                       ),
                       CustomTextFormField(
                         label: "Username",

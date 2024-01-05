@@ -12,5 +12,6 @@ class AppRoutes {
   static const verifyIdentityView = '/verify-identity-view';
   static const verifyIdentitySuccessView = '/verify-identity-success-view';
   static const homeView = '/home-view';
-  static const chatView = "/chat-view";
+  static const chatView = '/chat-view';
+  static const profileView = '/profile-view';
 }

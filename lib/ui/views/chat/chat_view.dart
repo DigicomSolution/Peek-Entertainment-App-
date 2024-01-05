@@ -218,7 +218,7 @@ class ChatMessage extends StatelessWidget {
         padding: const EdgeInsets.all(12),
         constraints: BoxConstraints(maxWidth: context.widthPercent(0.7)),
         decoration: BoxDecoration(
-          color: isMyMessage ? Colors.blue : Colors.green,
+          color: isMyMessage ? AppColors.buttonColor : AppColors.white,
           borderRadius: isMyMessage
               ? const BorderRadius.only(
                   topRight: Radius.circular(30),
@@ -233,7 +233,9 @@ class ChatMessage extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: context.textTheme.labelLarge,
+          style: context.textTheme.labelLarge?.copyWith(
+            color: AppColors.normalBlack,
+          ),
         ),
       ),
     );
