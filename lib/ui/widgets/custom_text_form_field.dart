@@ -38,72 +38,50 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   bool _isFocused = false;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      // height: context.heightPercent(0.07),
-      child: Focus(
-        onFocusChange: (hasFocus) {
-          setState(() {
-            _isFocused = hasFocus;
-          });
-        },
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8.0),
-            border: Border.all(
-              color: _isFocused ? AppColors.buttonColor : AppColors.white,
-            ),
+    return TextFormField(
+      controller: widget.controller,
+      obscureText: widget.isObscure,
+      keyboardType: widget.textInputType ?? TextInputType.text,
+      readOnly: widget.readOnly,
+      validator: widget.validate,
+      maxLines: widget.max,
+      onChanged: widget.onChange,
+      style: context.textTheme.labelLarge?.copyWith(color: AppColors.white),
+      decoration: InputDecoration(
+          filled: true,
+          label: Text(widget.label),
+          labelStyle: context.textTheme.labelMedium?.copyWith(
+              color: _isFocused ? AppColors.textGrey : AppColors.white),
+          fillColor: AppColors.fillColor,
+          hintText: widget.hint,
+          hintStyle: TextStyle(
+              color: AppColors.buttonColor.withOpacity(0.3), fontSize: 11),
+          errorText: widget.errorText,
+          floatingLabelBehavior: FloatingLabelBehavior.auto,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: const BorderSide(color: AppColors.white),
           ),
-          child: TextFormField(
-            controller: widget.controller,
-            obscureText: widget.isObscure,
-            keyboardType: widget.textInputType ?? TextInputType.text,
-            readOnly: widget.readOnly,
-            validator: widget.validate,
-            maxLines: widget.max,
-            onChanged: widget.onChange,
-            style:
-                context.textTheme.labelLarge?.copyWith(color: AppColors.white),
-            decoration: InputDecoration(
-                filled: true,
-                label: Text(widget.label),
-                labelStyle: context.textTheme.labelMedium?.copyWith(
-                    color: _isFocused ? AppColors.textGrey : AppColors.white),
-                fillColor: AppColors.fillColor,
-                hintText: widget.hint,
-                hintStyle: TextStyle(
-                    color: AppColors.buttonColor.withOpacity(0.3),
-                    fontSize: 11),
-                errorText: widget.errorText,
-                floatingLabelBehavior: FloatingLabelBehavior.auto,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: AppColors.white),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(color: AppColors.white),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(
-                      color:
-                          AppColors.buttonColor), // Orange border when focused
-                ),
-                suffixIcon: widget.isPassword
-                    ? IconButton(
-                        onPressed: widget.onTap,
-                        icon: Icon(
-                          widget.isObscure
-                              ? Icons.visibility_off
-                              : Icons.visibility_sharp,
-                          color: AppColors.white,
-                        ),
-                      )
-                    : null),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: const BorderSide(color: AppColors.white),
           ),
-        ),
-      ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: const BorderSide(
+                color: AppColors.buttonColor), // Orange border when focused
+          ),
+          suffixIcon: widget.isPassword
+              ? IconButton(
+                  onPressed: widget.onTap,
+                  icon: Icon(
+                    widget.isObscure
+                        ? Icons.visibility_off
+                        : Icons.visibility_sharp,
+                    color: AppColors.white,
+                  ),
+                )
+              : null),
     );
   }
 }

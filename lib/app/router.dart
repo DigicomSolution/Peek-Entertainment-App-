@@ -21,7 +21,7 @@ import '../ui/views/verification_success/verification_success_view.dart';
 GoRouter router() {
   return GoRouter(routes: <GoRoute>[
     GoRoute(
-      name: AppRoutes.startUp,
+      name: "startup",
       path: AppRoutes.startUp,
       builder: (BuildContext context, GoRouterState state) =>
           const StartUpView(),

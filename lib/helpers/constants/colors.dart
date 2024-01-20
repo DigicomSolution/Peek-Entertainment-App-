@@ -11,6 +11,8 @@ class AppColors {
   static const fillColor = Color(0xFF282827);
   static const deepBlack = Color(0xFF010100);
   static const textGrey = Color(0xFFC5C5C5);
+  static const red = Color(0xffEB5757);
+  static const yellow = Color(0xffFAB513);
   static List<Color> primaryColorOptions = const [
     primary,
   ];

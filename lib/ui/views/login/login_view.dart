@@ -6,6 +6,7 @@ import 'package:stacked/stacked.dart';
 
 import '../../../helpers/constants/assets.dart';
 import '../../../helpers/constants/colors.dart';
+import '../../../helpers/utils/form_validation.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/custom_text_form_field.dart';
 
@@ -23,95 +24,110 @@ class LoginView extends StatelessWidget {
                 onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
                 child: Padding(
                   padding: const EdgeInsets.all(15),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: context.heightPercent(0.1),
-                      ),
-                      Text(
-                        "Login In",
-                        style: context.textTheme.titleLarge
-                            ?.copyWith(color: AppColors.white),
-                      ),
-                      const SizedBox(
-                        height: 50,
-                      ),
-                      CustomTextFormField(
-                        label: "Email Address",
-                        controller: model.emailController,
-                        textInputType: TextInputType.emailAddress,
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      CustomTextFormField(
-                        label: "Password",
-                        controller: model.passwordController,
-                        isPassword: true,
-                        max: 1,
-                        isObscure: model.isVisible,
-                        onTap: model.toggleVisibility,
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: InkWell(
-                          onTap: model.goToForgotPassword,
-                          child: Text(
-                            "Forgot Password?",
-                            style: context.textTheme.titleSmall
-                                ?.copyWith(color: AppColors.buttonColor),
+                  child: Form(
+                    key: model.formKey,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: context.heightPercent(0.1),
+                        ),
+                        Text(
+                          "Login In",
+                          style: context.textTheme.titleLarge
+                              ?.copyWith(color: AppColors.white),
+                        ),
+                        const SizedBox(
+                          height: 50,
+                        ),
+                        model.hasError
+                            ? Text(
+                                "Password or Email is not Correct. check and try again",
+                                textAlign: TextAlign.center,
+                                style: context.textTheme.bodySmall
+                                    ?.copyWith(color: Colors.red),
+                              )
+                            : const SizedBox(),
+                        CustomTextFormField(
+                          label: "Email Address",
+                          controller: model.emailController,
+                          textInputType: TextInputType.emailAddress,
+                          validate: FormValidation.emailValidation,
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        CustomTextFormField(
+                          label: "Password",
+                          controller: model.passwordController,
+                          isPassword: true,
+                          max: 1,
+                          isObscure: model.isVisible,
+                          onTap: model.toggleVisibility,
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: InkWell(
+                            onTap: model.goToForgotPassword,
+                            child: Text(
+                              "Forgot Password?",
+                              style: context.textTheme.titleSmall
+                                  ?.copyWith(color: AppColors.buttonColor),
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 50,
-                      ),
-                      CustomButton(text: "Login", onTap: model.goToHomeView),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Align(
-                        alignment: Alignment.center,
-                        child: InkWell(
-                          onTap: model.goToSignUpView,
-                          child: RichText(
-                              text: TextSpan(
-                                  text: 'Don’t have an account yet? ',
-                                  style: context.textTheme.labelLarge
-                                      ?.copyWith(color: AppColors.white),
-                                  children: [
-                                TextSpan(
-                                  text: 'Sign Up',
-                                  style: context.textTheme.titleSmall
-                                      ?.copyWith(color: AppColors.buttonColor),
-                                ),
-                              ])),
+                        const SizedBox(
+                          height: 50,
                         ),
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      const Align(
+                        model.isBusy
+                            ? CircularProgressIndicator()
+                            : CustomButton(text: "Login", onTap: model.login),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        Align(
                           alignment: Alignment.center,
-                          child: Text("Or continue with")),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SvgPicture.asset(AppAssets.googleSvg),
-                          SizedBox(
-                            width: context.widthPercent(0.2),
+                          child: InkWell(
+                            onTap: model.goToSignUpView,
+                            child: RichText(
+                                text: TextSpan(
+                                    text: 'Don’t have an account yet? ',
+                                    style: context.textTheme.labelLarge
+                                        ?.copyWith(color: AppColors.white),
+                                    children: [
+                                  TextSpan(
+                                    text: 'Sign Up',
+                                    style: context.textTheme.titleSmall
+                                        ?.copyWith(
+                                            color: AppColors.buttonColor),
+                                  ),
+                                ])),
                           ),
-                          SvgPicture.asset(AppAssets.facebookSvg),
-                        ],
-                      )
-                    ],
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        const Align(
+                            alignment: Alignment.center,
+                            child: Text("Or continue with")),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset(AppAssets.googleSvg),
+                            SizedBox(
+                              width: context.widthPercent(0.2),
+                            ),
+                            SvgPicture.asset(AppAssets.facebookSvg),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
