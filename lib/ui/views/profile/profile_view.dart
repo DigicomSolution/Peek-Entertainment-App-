@@ -241,17 +241,20 @@ class ProfileView extends StatelessWidget {
                         const SizedBox(
                           height: 20,
                         ),
-                        Row(
-                          children: const [
-                            Icon(
-                              Icons.logout_outlined,
-                              color: AppColors.white,
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text("Log Out")
-                          ],
+                        InkWell(
+                          onTap: model.logout,
+                          child: Row(
+                            children: const [
+                              Icon(
+                                Icons.logout_outlined,
+                                color: AppColors.white,
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text("Log Out")
+                            ],
+                          ),
                         )
                       ],
                     ),

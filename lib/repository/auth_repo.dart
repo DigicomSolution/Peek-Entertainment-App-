@@ -7,9 +7,11 @@ import '../helpers/constants/routes.dart';
 import '../helpers/helper_functions/dialog_service.dart';
 import '../model/app/dialog_request_model.dart';
 import '../model/enum.dart';
+import '../model/response_model/api_response_model.dart';
 import '../services/api/api_client.dart';
 import '../services/app_services/app_state_service.dart';
 import '../services/app_services/local_storage_service.dart';
+import '../services/user_service.dart';
 
 class AuthRepo {
   final _preferences = locator<LocalStorageService>();
@@ -26,8 +28,12 @@ class AuthRepo {
       locator<AppStateService>().loginState = true;
       _preferences.saveDataToDisk(AppStorekeys.token, result.data["token"]);
       _preferences.saveDataToDisk(AppStorekeys.userId, result.data["id"]);
-      // locator<UserService>().getUserProfile();
-      _router.go(AppRoutes.homeView);
+      locator<UserService>().fetchUserProfile();
+      if (result.data["isProfileCompleted"] == true) {
+        _router.go(AppRoutes.homeView);
+      } else {
+        _router.go(AppRoutes.anonymousProfileView);
+      }
     } else if (result.statusCode == 400) {
       await showBasicDialog(
           DialogRequestModel(
@@ -39,6 +45,14 @@ class AuthRepo {
           ),
           onMainTap: null);
     }
+  }
+
+  void logout() {
+    locator<AppStateService>().loginState = false;
+    _preferences.removeDataFromDisk(AppStorekeys.token);
+    _preferences.removeDataFromDisk(AppStorekeys.userId);
+    _preferences.removeDataFromDisk(AppStorekeys.user);
+    _router.go(AppRoutes.startUp);
   }
 
   String _getButtonMessage(String data, String email) {
@@ -69,5 +83,12 @@ class AuthRepo {
       message = "Account is not Activated, check $email for verification link";
     }
     return message;
+  }
+
+  static Future<ApiResponse> register({required Object userModel}) async {
+    print(userModel);
+    final result = await ApiClient.post(ApiEndpoints.registerUser,
+        body: userModel, useToken: false);
+    return result;
   }
 }

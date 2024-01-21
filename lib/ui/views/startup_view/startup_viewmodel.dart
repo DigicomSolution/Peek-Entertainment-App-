@@ -12,14 +12,10 @@ class StartUpViewModel extends ReactiveViewModel {
   final _router = locator<GoRouter>();
   void startUp(BuildContext context) async {
     await _appState.onAppStart();
-    print("ok1");
     if (_appState.loginState) {
-      print("ok2");
       return _router.go(AppRoutes.homeView);
     }
-    print("ok3");
     if (!_appState.initialized) return _router.go(AppRoutes.splashScreen);
-    print("ok4");
     if (!_appState.loginState) return _router.go(AppRoutes.loginView);
   }
 

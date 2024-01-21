@@ -83,7 +83,7 @@ class LoginView extends StatelessWidget {
                           height: 50,
                         ),
                         model.isBusy
-                            ? CircularProgressIndicator()
+                            ? const Center(child: CircularProgressIndicator(color: AppColors.buttonColor,))
                             : CustomButton(text: "Login", onTap: model.login),
                         const SizedBox(
                           height: 30,

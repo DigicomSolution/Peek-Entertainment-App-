@@ -8,6 +8,7 @@ import 'package:peek/ui/widgets/custom_text_form_field.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../helpers/constants/colors.dart';
+import '../../../helpers/utils/form_validation.dart';
 
 class SignupView extends StatelessWidget {
   const SignupView({super.key});
@@ -23,98 +24,112 @@ class SignupView extends StatelessWidget {
                 onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
                 child: Padding(
                   padding: EdgeInsets.all(context.widthPercent(0.04)),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: context.heightPercent(0.1),
-                      ),
-                      Text(
-                        "Sign Up",
-                        style: context.textTheme.titleLarge
-                            ?.copyWith(color: AppColors.white),
-                      ),
-                      SizedBox(
-                        height: context.heightPercent(0.02),
-                      ),
-                      CustomTextFormField(
-                          label: "First Name",
-                          controller: model.firstNameController),
-                      SizedBox(
-                        height: context.heightPercent(0.02),
-                      ),
-                      CustomTextFormField(
-                          label: "Last Name",
-                          controller: model.lastNameController),
-                      SizedBox(
-                        height: context.heightPercent(0.02),
-                      ),
-                      CustomTextFormField(
-                        label: "Email Address",
-                        controller: model.emailController,
-                        textInputType: TextInputType.emailAddress,
-                      ),
-                      SizedBox(
-                        height: context.heightPercent(0.02),
-                      ),
-                      CustomTextFormField(
-                        label: "Password",
-                        controller: model.passwordController,
-                        isPassword: true,
-                        max: 1,
-                        isObscure: model.isVisible,
-                        onTap: model.toggleVisibility,
-                      ),
-                      SizedBox(
-                        height: context.heightPercent(0.04),
-                      ),
-                      CustomButton(
-                          text: "Sign Up", onTap: model.goToVerification),
-                      SizedBox(
-                        height: context.heightPercent(0.02),
-                      ),
-                      Align(
-                        alignment: Alignment.center,
-                        child: InkWell(
-                          onTap: model.goToLogin,
-                          child: RichText(
-                              text: TextSpan(
-                                  text: 'Already have an account? ',
-                                  style: context.textTheme.labelLarge
-                                      ?.copyWith(color: AppColors.white),
-                                  children: [
-                                TextSpan(
-                                  text: 'Log In',
-                                  style: context.textTheme.titleSmall
-                                      ?.copyWith(color: AppColors.buttonColor),
-                                ),
-                              ])),
+                  child: Form(
+                    key: model.formKey,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: context.heightPercent(0.1),
                         ),
-                      ),
-                      SizedBox(
-                        height: context.heightPercent(0.02),
-                      ),
-                      Align(
+                        Text(
+                          "Sign Up",
+                          style: context.textTheme.titleLarge
+                              ?.copyWith(color: AppColors.white),
+                        ),
+                        SizedBox(
+                          height: context.heightPercent(0.02),
+                        ),
+                        CustomTextFormField(
+                            label: "First Name",
+                            validate: FormValidation.stringValidation,
+                            controller: model.firstNameController),
+                        SizedBox(
+                          height: context.heightPercent(0.02),
+                        ),
+                        CustomTextFormField(
+                            label: "Last Name",
+                            validate: FormValidation.stringValidation,
+                            controller: model.lastNameController),
+                        SizedBox(
+                          height: context.heightPercent(0.02),
+                        ),
+                        CustomTextFormField(
+                          label: "Email Address",
+                          controller: model.emailController,
+                          errorText: model.errorText,
+                          validate: FormValidation.emailValidation,
+                          textInputType: TextInputType.emailAddress,
+                        ),
+                        SizedBox(
+                          height: context.heightPercent(0.02),
+                        ),
+                        CustomTextFormField(
+                          label: "Password",
+                          controller: model.passwordController,
+                          isPassword: true,
+                          validate: FormValidation.passwordValidation,
+                          max: 1,
+                          isObscure: model.isVisible,
+                          onTap: model.toggleVisibility,
+                        ),
+                        SizedBox(
+                          height: context.heightPercent(0.04),
+                        ),
+                        model.isBusy
+                            ? const Center(
+                                child: CircularProgressIndicator(
+                                color: AppColors.buttonColor,
+                              ))
+                            : CustomButton(
+                                text: "Sign Up", onTap: model.signUp),
+                        SizedBox(
+                          height: context.heightPercent(0.02),
+                        ),
+                        Align(
                           alignment: Alignment.center,
-                          child: Text(
-                            "Or continue with",
-                            style: context.textTheme.labelLarge
-                                ?.copyWith(color: AppColors.textGrey),
-                          )),
-                      SizedBox(
-                        height: context.heightPercent(0.02),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SvgPicture.asset(AppAssets.googleSvg),
-                          SizedBox(
-                            width: context.widthPercent(0.2),
+                          child: InkWell(
+                            onTap: model.goToLogin,
+                            child: RichText(
+                                text: TextSpan(
+                                    text: 'Already have an account? ',
+                                    style: context.textTheme.labelLarge
+                                        ?.copyWith(color: AppColors.white),
+                                    children: [
+                                  TextSpan(
+                                    text: 'Log In',
+                                    style: context.textTheme.titleSmall
+                                        ?.copyWith(
+                                            color: AppColors.buttonColor),
+                                  ),
+                                ])),
                           ),
-                          SvgPicture.asset(AppAssets.facebookSvg),
-                        ],
-                      )
-                    ],
+                        ),
+                        SizedBox(
+                          height: context.heightPercent(0.02),
+                        ),
+                        Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Or continue with",
+                              style: context.textTheme.labelLarge
+                                  ?.copyWith(color: AppColors.textGrey),
+                            )),
+                        SizedBox(
+                          height: context.heightPercent(0.02),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset(AppAssets.googleSvg),
+                            SizedBox(
+                              width: context.widthPercent(0.2),
+                            ),
+                            SvgPicture.asset(AppAssets.facebookSvg),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),

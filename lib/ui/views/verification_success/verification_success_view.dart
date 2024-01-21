@@ -37,7 +37,7 @@ class VerificationSuccessView extends StatelessWidget {
                       height: context.heightPercent(0.1),
                     ),
                     CustomButton(
-                        text: "Continue", onTap: model.goToProfileSetup)
+                        text: "Continue", onTap: model.goToLogin)
                   ],
                 ),
               ),

@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 import 'package:peek/app/router.dart';
+import 'package:peek/services/user_service.dart';
 
 import '../services/app_services/app_state_service.dart';
 import '../services/app_services/local_storage_service.dart';
@@ -10,4 +11,5 @@ Future setUpLocator() async {
   locator.registerSingleton<LocalStorageService>(instance);
   locator.registerSingleton<GoRouter>(router());
   locator.registerSingleton(AppStateService());
+  locator.registerSingleton(UserService());
 }
