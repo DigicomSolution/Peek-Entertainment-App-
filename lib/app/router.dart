@@ -7,6 +7,7 @@ import 'package:peek/ui/views/home/home_view.dart';
 import 'package:peek/ui/views/identity_verification_success_view/identity_verification_success_view.dart';
 import 'package:peek/ui/views/login/login_view.dart';
 import 'package:peek/ui/views/profile/profile_view.dart';
+import 'package:peek/ui/views/profile_details/profile_details_view.dart';
 import 'package:peek/ui/views/reset_password/reset_password_view.dart';
 import 'package:peek/ui/views/signup/signup_view.dart';
 import 'package:peek/ui/views/splash_view/splash_view.dart';
@@ -106,6 +107,12 @@ GoRouter router() {
       path: AppRoutes.profileView,
       builder: (BuildContext context, GoRouterState state) =>
           const ProfileView(),
+    ),
+    GoRoute(
+      name: AppRoutes.profileDetailsView,
+      path: AppRoutes.profileDetailsView,
+      builder: (BuildContext context, GoRouterState state) =>
+      const ProfileDetailsView(),
     ),
   ]);
 }

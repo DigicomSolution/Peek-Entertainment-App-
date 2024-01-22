@@ -59,11 +59,11 @@ class ProfileView extends StatelessWidget {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text('Tyler Swift',
+                                Text("${model.user?.name}",
                                     style: context.textTheme.labelLarge
                                         ?.copyWith(color: AppColors.white)),
                                 Text(
-                                  "@swift",
+                                  "@${model.user?.userName}",
                                   style: context.textTheme.labelSmall
                                       ?.copyWith(color: AppColors.white),
                                 ),
@@ -130,6 +130,7 @@ class ProfileView extends StatelessWidget {
                         ),
                         ListTile(
                           contentPadding: const EdgeInsets.all(0),
+                          onTap: model.goToProfileDetails,
                           leading: const Icon(
                             Icons.account_circle_outlined,
                             color: AppColors.white,

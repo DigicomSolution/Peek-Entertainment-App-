@@ -28,8 +28,8 @@ class AuthRepo {
       locator<AppStateService>().loginState = true;
       _preferences.saveDataToDisk(AppStorekeys.token, result.data["token"]);
       _preferences.saveDataToDisk(AppStorekeys.userId, result.data["id"]);
-      locator<UserService>().fetchUserProfile();
       if (result.data["isProfileCompleted"] == true) {
+        await locator<UserService>().fetchUserProfile();
         _router.go(AppRoutes.homeView);
       } else {
         _router.go(AppRoutes.anonymousProfileView);

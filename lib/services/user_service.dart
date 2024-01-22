@@ -26,10 +26,14 @@ class UserService with ListenableServiceMixin {
     if (data == null) {
       final result = await UserRepo.getUserProfile();
       if (result.statusCode == 200) {
-        setLocalUser = UserProfileModel.fromJson(result.data);
+        _storage.saveDataToDisk(
+            AppStorekeys.user, UserProfileModel.fromJson(result.data));
+        _user.value = UserProfileModel.fromJson(result.data);
+        notifyListeners();
       }
+    } else {
+      _user.value = data;
+      notifyListeners();
     }
-    _user.value = data;
-    notifyListeners();
   }
 }

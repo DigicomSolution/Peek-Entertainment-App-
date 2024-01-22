@@ -14,4 +14,5 @@ class AppRoutes {
   static const homeView = '/home-view';
   static const chatView = '/chat-view';
   static const profileView = '/profile-view';
+  static const profileDetailsView = '/profile-details-view';
 }

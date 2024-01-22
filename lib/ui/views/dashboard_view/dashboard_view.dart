@@ -34,7 +34,7 @@ class DashboardView extends StatelessWidget {
                             ?.copyWith(color: AppColors.textGrey),
                       ),
                       Text(
-                        "Anonymous123",
+                        "${model.user?.userName}",
                         style: context.textTheme.titleSmall
                             ?.copyWith(color: AppColors.textGrey),
                       )

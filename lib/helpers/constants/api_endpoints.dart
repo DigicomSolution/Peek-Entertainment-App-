@@ -4,4 +4,6 @@ class ApiEndpoints {
   static const registerUser = '$baseUrl/api/Auth/Register';
   static const createUserProfile = '$baseUrl/api/User/CreateUserProfile';
   static const getUserProfile = '$baseUrl/api/User/GetUserProfile';
+  static const getUserPersonalDetails =
+      '$baseUrl/api/User/GetUserPersonalDetails';
 }

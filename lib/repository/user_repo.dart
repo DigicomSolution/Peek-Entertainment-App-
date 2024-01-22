@@ -22,4 +22,10 @@ class UserRepo {
         await ApiClient.get(ApiEndpoints.getUserProfile, useToken: true);
     return result;
   }
+
+  static Future<ApiResponse> getUserPersonalDetails() async {
+    final result = await ApiClient.get(ApiEndpoints.getUserPersonalDetails,
+        useToken: true);
+    return result;
+  }
 }
